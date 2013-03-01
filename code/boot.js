@@ -47,11 +47,10 @@ window.setupMap = function() {
   var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', osmOpt);
 
   var cmOpt = {attribution: 'Map data © OpenStreetMap contributors, Imagery © CloudMade', maxZoom: 18};
-  var cmIitc = new L.TileLayer('http://{s}.tile.cloudmade.com/654cef5fd49a432ab81267e200ecc502/88088/256/{z}/{x}/{y}.png', cmOpt);
   var cmMin = new L.TileLayer('http://{s}.tile.cloudmade.com/654cef5fd49a432ab81267e200ecc502/22677/256/{z}/{x}/{y}.png', cmOpt);
   var cmMid = new L.TileLayer('http://{s}.tile.cloudmade.com/654cef5fd49a432ab81267e200ecc502/999/256/{z}/{x}/{y}.png', cmOpt);
 
-  var views = [cmIitc, cmMid, cmMin, osm, new L.Google('INGRESS'), new L.Google('ROADMAP'),
+  var views = [cmMid, cmMin, osm, new L.Google('INGRESS'), new L.Google('ROADMAP'),
                new L.Google('SATELLITE'), new L.Google('HYBRID')];
 
 
@@ -78,14 +77,13 @@ window.setupMap = function() {
   addLayers['Links'] = linksLayer;
 
   window.layerChooser = new L.Control.Layers({
-    'OSM Cloudmade iitc': views[0],
-    'OSM Cloudmade Midnight': views[1],
-    'OSM Cloudmade Minimal': views[2],
-    'OSM Mapnik': views[3],
-    'Google Roads Ingress Style': views[4],
-    'Google Roads':  views[5],
-    'Google Satellite':  views[6],
-    'Google Hybrid':  views[7]
+    'OSM Cloudmade Midnight': views[0],
+    'OSM Cloudmade Minimal': views[1],
+    'OSM Mapnik': views[2],
+    'Google Roads Ingress Style': views[3],
+    'Google Roads':  views[4],
+    'Google Satellite':  views[5],
+    'Google Hybrid':  views[6]
     }, addLayers);
 
   map.addControl(window.layerChooser);
